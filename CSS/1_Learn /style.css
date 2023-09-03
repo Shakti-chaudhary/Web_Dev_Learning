@@ -4,6 +4,7 @@
 }
 body {
   background-color: black;
+  background-image: url();
 }
 h1 {
   font-family: "Press Start 2p", "Courier New", Courier, monospace;
@@ -27,4 +28,16 @@ p {
   border-width: 5px;
   border-color: gold;
   border-radius: 1.2rem;
+}
+#p1 {
+  background: linear-gradient(to right, skyblue, lightgreen);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+a:link {
+  color: lawngreen;
+  font-size: 3rem;
+}
+a:visited {
+  color: tomato;
 }
