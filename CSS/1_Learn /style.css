@@ -1,8 +1,19 @@
 * {
-  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: black;
+}
+h1 {
+  font-family: "Press Start 2p", "Courier New", Courier, monospace;
+  color: white;
+}
 p {
-  background-color: bisque;
+  background-color: darkcyan;
+  padding: 10px;
+  color: white;
+}
+#p2 {
+  background-color: darkseagreen;
 }
