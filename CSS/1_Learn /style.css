@@ -4,13 +4,56 @@
 }
 body {
   background-color: black;
-  background-image: url();
+  background-image: url("cool-background.png");
 }
 h1 {
   font-family: "Press Start 2p", "Courier New", Courier, monospace;
   color: white;
   text-decoration: blue dotted underline;
   font-size: 2.5rem;
+}
+
+h2 {
+  background-color: white;
+  padding: 15px;
+  color: black;
+  font-size: xx-large;
+  /* Text Shadow  */
+  text-shadow: 5px 5px 2px grey;
+  /* Box Shadow */
+  box-shadow: 5px 5px 2px green, -5px -5px 2px yellowgreen;
+}
+.font {
+  display: flex;
+  margin: 15px auto;
+  border: 2px solid pink;
+  width: 80%;
+  height: 150px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.fa-home {
+  color: wheat;
+}
+.box1 {
+  font-size: 150px;
+  color: white;
+
+  /* Transform Propertys */
+  transform: translateY(55px);
+  transform: scaleX(1.2);
+  transform: rotateZ(20deg);
+
+  /* transform: matrix(0 , 0 , 0 , 0 , 0 , 0); */
+
+  /* Transform matrix combines the following
+  
+  scaleX(),
+  skewY(),
+  skewX(),
+  scaleY(),
+  translateX(),
+  translateY(), */
 }
 p {
   background-color: darkcyan;
