@@ -36,6 +36,7 @@ h2 {
   color: wheat;
 }
 .box1 {
+  background-color: tomato;
   font-size: 150px;
   color: white;
 
@@ -83,4 +84,32 @@ a:link {
 }
 a:visited {
   color: tomato;
+}
+
+/* Animation in CSS */
+
+/* animation: mySlide;
+animation-play-state: running;
+animation-iteration-count: infinite;
+animation-delay: 0s;
+animation-timing-function: linear;
+animaiton-duration: 5s; */
+
+.box1 {
+  animation: 2s linear 0s infinite running myRotate;
+}
+
+@keyframes mySlide {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 0%;
+  }
+}
+
+@keyframes myRotate {
+  100% {
+    transform: rotateY(360deg);
+  }
 }
