@@ -10,11 +10,20 @@ body {
   border: 2px solid blue;
   display: flex;
   /* flex-direction: column; */
-  flex-wrap: wrap;
-  align-items: center;
+  /* flex-wrap: wrap; */
+  flex-flow: row wrap;
+
+  /* column-gap: 20px; */
+  /* row-gap: 20px; */
+  /* gap: 30px 10px; */
+
+  /* justify-content: space-evenly; */
+
+  height: 500px;
+  /* align-items: flex-start; */
 }
 .flex-item {
-  border: 1px dashed red;
+  border: 3px dashed red;
   color: white;
   font-size: 1.5rem;
   padding: 1rem;
@@ -32,13 +41,17 @@ body {
 }
 .item-3 {
   background-color: #1c4c56;
+  height: auto; /* Align-self not work with hard height */
+  align-self: stretch;
 }
 .item-4 {
   background-color: #cfb276;
+  flex: 0 0 220px;
+  /* flex-grow flex-shrink flex-basis */
 }
 .item-5 {
   background-color: #6b0803;
-  flex-grow: 2;
+  flex-grow: 1;
 }
 .item-6 {
   background-color: #1c4c56;
