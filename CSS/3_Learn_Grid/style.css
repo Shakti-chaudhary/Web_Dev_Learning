@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: gray;
+}
+.container {
+  border: 2px solid blue;
+  display: grid;
+  height: 630px;
+
+  /* grid-template-columns: repeat(3, minmax(200px, 1fr)); */
+  /* grid-template-rows: repeat(3, minmax(150px, 1fr)); */
+  grid-template: 200px 50px 200px/ 300px 150px 75px;
+
+  /* column-gap: 20px; */
+  /* row-gap: 30px; */
+  gap: 15px 10px;
+
+  /* For columns */
+  /* justify-items: stretch; */
+  /* For row */
+  /* align-items: start; */
+
+  /* place-items: center; */
+
+  /* align-content: end; */
+  /* justify-content: space-between; */
+  place-content: end space-evenly;
+}
+.grid-item {
+  border: 3px dashed red;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.item-1 {
+  background-color: #b4bf35;
+}
+.item-2 {
+  background-color: #b95f21;
+}
+.item-3 {
+  background-color: #1c4c56;
+}
+.item-4 {
+  background-color: #cfb276;
+  /* grid-column-start: 1; */
+  /* grid-column-end: 4; */
+  grid-column: 1 / 4;
+}
+.item-5 {
+  background-color: #6b0803;
+  /* justify-self: start; */
+  /* align-self: flex-start; */
+  place-self: start end;
+}
+.item-6 {
+  background-color: #1c4c56;
+}
+.item-7 {
+  background-color: #b95f21;
+}
+.item-8 {
+  background-color: #01243a;
+}
+.item-9 {
+  background-color: #aad041;
+}
