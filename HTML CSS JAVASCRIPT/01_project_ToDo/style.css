@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Press Start 2P", cursive; */
 }
 body {
   background: linear-gradient(120deg, #f6d365, #fda085);
@@ -12,6 +11,8 @@ body {
 }
 header {
   font-size: 1.5rem;
+  font-family: "Press Start 2P", cursive;
+  margin-top: 2.5rem;
 }
 
 header,
@@ -47,10 +48,11 @@ form button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
 }
 
 .todo-list {
-  min-width: 30%;
+  min-width: 40%;
   list-style: none;
 }
 .todo {
@@ -61,6 +63,7 @@ form button:hover {
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
+  transition: all 0.5s ease;
 }
 
 .todo li {
@@ -79,4 +82,22 @@ form button:hover {
 
 .complete-btn {
   background: rgb(73, 204, 73);
+}
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+/*  Animation */
+
+.fall {
+  transform: translateY(8rem) rotate(20deg);
+  opacity: 0;
 }
