@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  background-color: grey;
+  width: 80%;
+  height: 100vh;
+  margin: auto;
+}
+.grid-calculator {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: yellow;
+  width: 60%;
+  height: 70%;
+  margin: auto;
+}
+.grid-items {
+  border: 1px solid red;
+}
+.grid-item-1 {
+  grid-row: 1 / span5;
+  grid-column: 1 / span4;
+}
