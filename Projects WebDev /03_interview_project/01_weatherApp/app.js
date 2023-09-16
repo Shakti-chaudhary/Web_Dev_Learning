@@ -13,9 +13,9 @@ const apiUrl =
 
 async function checkWeather() {
   const response = await fetch(apiUrl + `&appid=${apiKey}`);
-  console.log(response.status);
+  console.log(response);
 
   var data = await response.json();
-  console.log(data.weather[0].main);
+  console.log(data);
 }
 checkWeather();
