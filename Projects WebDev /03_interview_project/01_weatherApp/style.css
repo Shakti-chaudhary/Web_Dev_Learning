@@ -60,7 +60,7 @@ body {
   color: #555;
 }
 .weather {
-  /* border: 1px solid yellowgreen; */
+  display: none;
 }
 .weather-icon {
   margin-top: 40px;
