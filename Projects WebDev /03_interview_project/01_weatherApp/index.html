@@ -13,16 +13,22 @@
     <title>Weather App</title>
   </head>
   <body>
+    <header>
+      <h1 class="headline">Weather App</h1>
+    </header>
     <div class="container">
       <div class="card">
         <div class="search">
           <input type="text" placeholder="enter city name" spellcheck="false" />
           <button><i class="fas fa-search"></i></button>
         </div>
+        <div class="error">
+          <p>Invalid city name</p>
+        </div>
         <div class="weather">
           <img
-            width="96"
-            height="96"
+            width="150"
+            height="150"
             src="https://img.icons8.com/fluency/96/cloud.png"
             class="weather-icon"
           />
