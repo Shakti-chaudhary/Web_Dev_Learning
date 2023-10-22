@@ -17,7 +17,24 @@ form.addEventListener("submit", function (e) {
   } else {
     showSuccess(username);
   }
-  console.log(username.value);
+  if (email.value === "") {
+    showError(email, "email is required");
+  } else if (!isEmailValid(email)) {
+    showError(email, "email is not valid");
+  } else {
+    showSuccess(email);
+  }
+  if (password.value === "") {
+    showError(password, "Password is required");
+  } else {
+    showSuccess(password);
+  }
+  if (password2.value === "") {
+    showError(password2, "Password 2 is required");
+  } else {
+    showSuccess(password2);
+  }
+  console.log(password.value);
 });
 
 // Functions
@@ -26,4 +43,21 @@ form.addEventListener("submit", function (e) {
 function showError(input, message) {
   const formControl = input.parentElement;
   formControl.classList.add("error");
+  const small = formControl.querySelector("small");
+  small.innerText = message;
+}
+
+//Show success outline
+function showSuccess(input) {
+  const formControl = input.parentElement;
+  formControl.classList.remove("error");
+  formControl.classList.add("success");
+}
+
+// Checks email is valid
+function isEmailValid(str) {
+  var pattern =
+    /^[a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-zA-Z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-zA-Z0-9]@[a-zA-Z0-9][-\.]{0,1}([a-zA-Z][-\.]{0,1})*[a-zA-Z0-9]\.[a-zA-Z0-9]{1,}([\.\-]{0,1}[a-zA-Z]){0,}[a-zA-Z0-9]{0,}$/i;
+
+  return pattern.test(str.value);
 }
