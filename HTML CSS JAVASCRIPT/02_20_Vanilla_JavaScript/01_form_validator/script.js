@@ -12,32 +12,27 @@ const password2 = document.getElementById("password2");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  if (username.value === "") {
-    showError(username, "Username is required");
-  } else {
-    showSuccess(username);
-  }
-  if (email.value === "") {
-    showError(email, "email is required");
-  } else if (!isEmailValid(email)) {
-    showError(email, "email is not valid");
-  } else {
-    showSuccess(email);
-  }
-  if (password.value === "") {
-    showError(password, "Password is required");
-  } else {
-    showSuccess(password);
-  }
-  if (password2.value === "") {
-    showError(password2, "Password 2 is required");
-  } else {
-    showSuccess(password2);
-  }
-  console.log(password.value);
+
+  checkRequired([username, email, password, password2]);
 });
 
 // Functions
+
+// Check required fields
+function checkRequired(inputArr) {
+  inputArr.forEach((input) => {
+    if (input.value.trim() === "") {
+      showError(input, `${getFieldName(input)} is required`);
+    } else {
+      showSuccess(input);
+    }
+  });
+}
+
+// Feild first name capital
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
 
 // Show input error message
 function showError(input, message) {
