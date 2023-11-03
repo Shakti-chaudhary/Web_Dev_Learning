@@ -7,6 +7,9 @@ const total = document.getElementById("total");
 const movieSelect = document.getElementById("movie");
 let ticketPrice = +movieSelect.value;
 
+// Initial UI set
+populateUi();
+
 // Event Listners
 
 // Movie select event
@@ -29,6 +32,28 @@ container.addEventListener("click", (event) => {
 
 // Functions
 
+// Initial ui update
+function populateUi() {
+  let selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+  // If no selected seats, selectedSeats will be null
+  // So initialize to empty array
+  if (!selectedSeats) {
+    selectedSeats = [];
+  }
+
+  seats.forEach((seat, index) => {
+    if (selectedSeats.indexOf(index) > -1) {
+      seat.classList.add("selected");
+    }
+  });
+
+  const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
+  if (selectedMovieIndex !== null) {
+    movieSelect.selectedIndex = selectedMovieIndex;
+    ticketPrice = +localStorage.getItem("selectedMoviePrice");
+  }
+}
+
 // Save movie index to local storage
 function setMovieData(movieIndex, moviePrice) {
   localStorage.setItem("selectedMovieIndex", movieIndex);
@@ -49,3 +74,6 @@ function updateSelectedCount() {
   count.innerText = selectedSeatsCount;
   total.innerText = selectedSeatsCount * ticketPrice;
 }
+
+// Initial count and total set
+updateSelectedCount();
