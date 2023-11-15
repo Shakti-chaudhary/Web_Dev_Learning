@@ -40,3 +40,27 @@ function display() {
   }
 }
 display();
+
+// Keydown letter press
+window.addEventListener("keypress", (e) => {
+  if (e.keyCode >= 65 && e.keyCode <= 90) {
+    const letter = e.key;
+
+    if (selectedWord.includes(leter)) {
+      if (!correctLetters.includes(letter)) {
+        correctLetters.push(letter);
+        display();
+      } else {
+        showNotification();
+      }
+    }
+  } else {
+    if (!wrongLetters.includes(letter)) {
+      wrongLetters.push(letter);
+
+      updateWrongLettersEl();
+    } else {
+      showNotification();
+    }
+  }
+});
