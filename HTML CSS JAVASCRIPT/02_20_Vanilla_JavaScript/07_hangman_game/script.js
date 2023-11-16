@@ -2,7 +2,7 @@
 
 const words = ["application", "programming", "interface", "wizard"];
 let selectedWord = words[Math.floor(Math.random() * words.length)];
-const correctLetters = ["w", "i", "z", "a", "r", "d"];
+const correctLetters = [];
 const wrongLetters = [];
 
 // Selectors
@@ -13,14 +13,55 @@ const playAgainBtn = document.getElementById("play-again");
 const popup = document.getElementById("popup-container");
 const notification = document.getElementById("notification-container");
 const finalMessage = document.getElementById("final-message");
-const figureParts = document.querySelectorAll("figure-part");
+const figureParts = document.querySelectorAll(".figure-part");
+
+displayWord();
 
 // Event Listeners
+
+// Keydown letter press
+
+window.addEventListener("keypress", (e) => {
+  const letter = e.key;
+  if (e.key.charCodeAt(0) >= 97 && e.key.charCodeAt(0) <= 122) {
+    if (selectedWord.includes(letter)) {
+      if (!correctLetters.includes(letter)) {
+        correctLetters.push(letter);
+        displayWord();
+      } else {
+        showNotification();
+      }
+    } else {
+      if (!wrongLetters.includes(letter)) {
+        wrongLetters.push(letter);
+
+        updateWrongLettersEl();
+      } else {
+        showNotification();
+      }
+    }
+  }
+});
+
+// Restart game and play again
+playAgainBtn.addEventListener("click", () => {
+  // Empty arrays
+  correctLetters.splice(0);
+  wrongLetters.splice(0);
+
+  selectedWord = words[Math.floor(Math.random() * words.length)];
+
+  displayWord();
+
+  updateWrongLettersEl();
+
+  popup.style.display = "none";
+});
 
 // Functions
 
 // Show hidden word
-function display() {
+function displayWord() {
   wordEl.innerHTML = `${selectedWord
     .split("")
     .map(
@@ -32,35 +73,43 @@ function display() {
     .join("")}`;
 
   const innerWord = wordEl.innerText.replace(/\n/g, "");
-  console.log(wordEl.innerText);
 
   if (innerWord === selectedWord) {
     finalMessage.innerText = "Congratulations! You won! 😄";
     popup.style.display = "flex";
   }
 }
-display();
 
-// Keydown letter press
-window.addEventListener("keypress", (e) => {
-  if (e.keyCode >= 65 && e.keyCode <= 90) {
-    const letter = e.key;
+// Update the wrong letters
+function updateWrongLettersEl() {
+  // Display worng letters
+  wrongLettersEl.innerHTML = `
+ ${wrongLetters.length > 0 ? `<p>Wrong </p>` : ""}
+ ${wrongLetters.map((letter) => `<span>${letter}</span>`)}
+ `;
 
-    if (selectedWord.includes(leter)) {
-      if (!correctLetters.includes(letter)) {
-        correctLetters.push(letter);
-        display();
-      } else {
-        showNotification();
-      }
-    }
-  } else {
-    if (!wrongLetters.includes(letter)) {
-      wrongLetters.push(letter);
-
-      updateWrongLettersEl();
+  // Display parts
+  figureParts.forEach((part, index) => {
+    const errors = wrongLetters.length;
+    if (index < errors) {
+      part.style.display = "block";
     } else {
-      showNotification();
+      part.style.display = "none";
     }
+  });
+
+  // Check if lost
+  if (wrongLetters.length === figureParts.length) {
+    finalMessage.innerText = "Unfortunately you lost. 😄";
+    popup.style.display = "flex";
   }
-});
+}
+
+// Show notification
+function showNotification() {
+  notification.classList.add("show");
+
+  setTimeout(() => {
+    notification.classList.remove("show");
+  }, 2000);
+}
