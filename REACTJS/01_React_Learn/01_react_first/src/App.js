@@ -15,6 +15,7 @@ function App() {
           corrupti assumenda numquam ullam quam.
         </p>
       </div>
+      <footer>@footer</footer>
     </>
   );
 }
