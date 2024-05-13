@@ -35,12 +35,12 @@
   --font-medium: 500;
   --font-semi-bold: 600;
 
-  /* ==== Margenes Bottom ==== */
+  /* ==== Margins Bottom ==== */
   --mb-0-25: 0.25rem;
   --mb-0-5: 0.5rem;
   --mb-0-75: 0.75rem;
   --mb-1: 1rem;
-  --mb-1--5: 1.5rem;
+  --mb-1-5: 1.5rem;
   --mb-2: 2rem;
   --mb-2-5: 2.5rem;
   --mb-3: 3rem;
@@ -178,8 +178,8 @@ img {
 /* For Large Devices */
 @media screen and (max-width: 992px) {
   .container {
-    margin-left: var(--mb-1--5);
-    margin-right: var(--mb-1--5);
+    margin-left: var(--mb-1-5);
+    margin-right: var(--mb-1-5);
   }
   .button {
     padding: 1rem 1.75rem;
