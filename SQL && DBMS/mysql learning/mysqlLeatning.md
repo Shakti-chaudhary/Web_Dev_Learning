@@ -181,6 +181,53 @@ delete from student2 where name = "Rohan";
 # delete from student where marks <60;
 # select * from student; 
 
+## Cascading on Foreign Key
+
+# create table dept(id int primary key,name varchar(50));
+# create table teacher(id int primary key,name varchar(50),dept_id int,foreign key(dept_id) references dept(id));
+
+# insert into dept values(2,"Mohit ");
+# insert into teacher values (101,"Adam",1),(102,"Eve",2);
+
+# drop table teacher;
+
+# create table teacher (id int primary key,name varchar(50),dept_id int,foreign key(dept_id) references dept(id) on delete cascade on update cascade);
+# insert into teacher values (101,"Adam",1),(102,"Eve",2);
+# select * from teacher;
+
+# update dept set id =3 where id = 2;
+
+## Table queries more (Alter)
+
+# alter table student add column age int;
+ 
+# insert into student values (211,"Rakshit",67,"D","Dallas",14);
+# select * from student;
+
+# alter table student drop column age;
+# select * from student;
+
+# alter table payment_info rename to payment_information;
+# show tables;
+
+# select * from payment_information;
+# alter table payment_information add column age int not null;
+# select * from payment_information;
+
+# alter table payment_information change age age_i int;
+# select * from payment_information;
+
+# alter table payment_information modify age_i tinyint;
+# select * from payment_information;  
+
+
+## delete data from table 
+# turncate table dept;
+
+# delete from student where marks <80; 
+
+   
+
 
 
 
