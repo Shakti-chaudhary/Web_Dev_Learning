@@ -226,7 +226,79 @@ delete from student2 where name = "Rohan";
 
 # delete from student where marks <80; 
 
-   
+
+## Joins in tables
+
+# inner Joins
+# select * from payment_information;
+# select * from student inner join payment_information on student.rollno = payment_information.customer_id;
+# select name,customer from student inner join payment_information on student.rollno = payment_information.customer_id;
+
+## Outer Joins 
+
+# Left Join
+
+# insert into student values (212,"Bheem",99,"A","Dholakpur",15);
+# select * from student as s left join payment_information as p on s.rollno = p.customer_id;
+# select * from payment_information as p left join student as s on p.customer_id = s.rollno;
+
+# Right Join
+
+# select * from student as s right join payment_information as p on s.rollno = p.customer_id ;
+# select * from payment_information as p right join student as s on p.customer_id = s.rollno;
+
+# Full Join
+
+# select * from student as s right join payment_information as p on s.rollno = p.customer_id union select * from student as s left join payment_information as p on s.rollno = p.customer_id;
+
+## Left Exclusive join && Right Exclusive join 
+
+# Left exclusive join 
+
+# select * from student as s left join payment_information as p on s.rollno = p.customer_id where p.customer_id is null;
+# select * from payment_information as p left join student as s on p.customer_id = s.rollno where s.rollno is null;
+
+# Right exclusive join dept
+
+# select * from student as s right join payment_information as p on s.rollno = p.customer_id where s.rollno is null;
+# select * from payment_information as p right join student as s on p.customer_id = s.rollno where p.customer_id is null;
+
+
+# Inner exclusive join
+
+# select * from student as s left join payment_information as p on s.rollno = p.customer_id where p.customer_id is not null;
+
+
+## Self Join (Work on Same table)
+
+# select a.name as manager_name;b.name from employee as a join employee as b on a.id = b.manager_id;
+
+# [ Try on different tables = return inner exclusive value]
+# select s.name as stu_name,p.customer as c_name from student as s join payment_information as p on s.rollno = p.customer_id; 
+# select * from student as s join payment_information as p on s.rollno = p.customer_id;
+
+
+# Sql Sub Queries
+
+# Where
+
+# select name,marks from student where marks > (select avg(marks) from student);   
+# select rollno from student where rollno in (select rollno from student where rollno % 2 = 0);
+
+
+# From 
+
+#  select max(marks) from (select * from student where city = "Delhi") as temp;
+
+# MySql Views 
+
+
+# create view student_view as (select rollno,marks,grade from student);
+# show tables;
+# select * from student_view;
+
+
+
 
 
 
