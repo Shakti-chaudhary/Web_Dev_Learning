@@ -1,0 +1,14 @@
+{
+  "name": "learnpackage.json",
+  "version": "0.0.1",
+  "description": "A code learn of nodejs ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shakti chaudhary",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0"
+  }
+}
